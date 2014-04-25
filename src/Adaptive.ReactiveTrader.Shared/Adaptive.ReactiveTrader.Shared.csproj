@@ -60,6 +60,7 @@
     <Compile Include="UI\IViewModel.cs" />
     <Compile Include="UI\NotifyingBase.cs" />
     <Compile Include="UI\ViewModelBase.cs" />
+    <Compile Include="Extensions\ValueWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
