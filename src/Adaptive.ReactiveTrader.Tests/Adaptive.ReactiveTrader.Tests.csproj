@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,19 +79,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adaptive.ReactiveTrader.Client.Domain\Adaptive.ReactiveTrader.Client.Domain.csproj">
-      <Project>{b6c8fd41-866d-4992-bb11-ad6984c25564}</Project>
+      <Project>{B6C8FD41-866D-4992-BB11-AD6984C25564}</Project>
       <Name>Adaptive.ReactiveTrader.Client.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adaptive.ReactiveTrader.Client.GUI\Adaptive.ReactiveTrader.Client.GUI.csproj">
-      <Project>{ca35010f-7f38-4dcf-828e-a825f1e8d525}</Project>
-      <Name>Adaptive.ReactiveTrader.Client.GUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adaptive.ReactiveTrader.Client\Adaptive.ReactiveTrader.Client.csproj">
-      <Project>{a894c01a-d326-40df-babc-0f807eb63a21}</Project>
+      <Project>{A894C01A-D326-40DF-BABC-0F807EB63A21}</Project>
       <Name>Adaptive.ReactiveTrader.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adaptive.ReactiveTrader.Shared\Adaptive.ReactiveTrader.Shared.csproj">
-      <Project>{b954b5a9-abd0-469b-9397-039675bec8f0}</Project>
+      <Project>{B954B5A9-ABD0-469B-9397-039675BEC8F0}</Project>
       <Name>Adaptive.ReactiveTrader.Shared</Name>
     </ProjectReference>
   </ItemGroup>
