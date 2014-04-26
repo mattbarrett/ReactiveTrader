@@ -42,6 +42,20 @@ namespace Adaptive.ReactiveTrader.Client.UI.SpotTiles
 
             SpotTiles.Add(_config);
 
+
+            _config.Config.PropertyChanged += (s, pce) =>
+            {
+                if (pce.PropertyName == "SubscriptionMode")
+                {
+                    var subscriptionMode = _config.Config.SubscriptionMode;
+                    SpotTiles.Where(vm => vm.Pricing != null).ForEach(vm => vm.Pricing.SubscriptionMode = subscriptionMode);
+                } else if (pce.PropertyName == "ExecutionMode")
+                {
+                    var executionMode = _config.Config.ExecutionMode;
+                    SpotTiles.Where(vm => vm.Pricing != null).ForEach(vm => vm.Pricing.ExecutionMode = executionMode);
+                }
+            };
+/*
             _subscriptions.Add(
                 _config.Config.ObserveProperty(p => p.SubscriptionMode)
                     .Subscribe(subscriptionMode => SpotTiles.Where(vm => vm.Pricing != null).ForEach(vm => vm.Pricing.SubscriptionMode = subscriptionMode)));
@@ -49,6 +63,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.SpotTiles
             _subscriptions.Add(
                 _config.Config.ObserveProperty(p => p.ExecutionMode)
                     .Subscribe(executionMode => SpotTiles.Where(vm => vm.Pricing != null).ForEach(vm => vm.Pricing.ExecutionMode = executionMode)));
+*/
 
             LoadSpotTiles();
         }

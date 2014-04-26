@@ -117,7 +117,7 @@ namespace Adaptive.ReactiveTrader.Shared.Extensions
         /// <param name="minimumUpdatePeriod">minimum delay between 2 updates</param>
         /// <param name="scheduler">to be used to publish updates and schedule delayed updates</param>
         /// <returns></returns>
-        public static IObservable<T> Conflate<T>(this IObservable<T> source, TimeSpan minimumUpdatePeriod, IScheduler scheduler)
+        public static IObservable<T> Conflate<T>(this IObservable<T> source, ValueWrapper<TimeSpan> minimumUpdatePeriod, IScheduler scheduler)
         {
             return Observable.Create<T>(observer =>
             {
@@ -204,7 +204,7 @@ namespace Adaptive.ReactiveTrader.Shared.Extensions
         /// <param name="heartbeatPeriod"></param>
         /// <param name="scheduler"></param>
         /// <returns></returns>
-        public static IObservable<IHeartbeat<T>> Heartbeat<T>(this IObservable<T> source, TimeSpan heartbeatPeriod, IScheduler scheduler)
+        public static IObservable<IHeartbeat<T>> Heartbeat<T>(this IObservable<T> source, ValueWrapper<TimeSpan> heartbeatPeriod, IScheduler scheduler)
         {
             return Observable.Create<IHeartbeat<T>>(observer =>
             {
@@ -254,7 +254,7 @@ namespace Adaptive.ReactiveTrader.Shared.Extensions
         /// <param name="stalenessPeriod">if source steam does not OnNext any update during this period, it is declared staled</param>
         /// <param name="scheduler"></param>
         /// <returns></returns>
-        public static IObservable<IStale<T>> DetectStale<T>(this IObservable<T> source, TimeSpan stalenessPeriod, IScheduler scheduler)
+        public static IObservable<IStale<T>> DetectStale<T>(this IObservable<T> source, ValueWrapper<TimeSpan> stalenessPeriod, IScheduler scheduler)
         {
             return Observable.Create<IStale<T>>(observer =>
             {
