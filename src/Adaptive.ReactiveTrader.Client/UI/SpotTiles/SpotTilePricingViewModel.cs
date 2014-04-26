@@ -19,7 +19,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.SpotTiles
     [ImplementPropertyChanged]
     public class SpotTilePricingViewModel : ViewModelBase, ISpotTilePricingViewModel
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(SpotTilePricingViewModel));
+        private static readonly ILog Log = LogManager.GetLogger();
         public IOneWayPriceViewModel Bid { get; private set; }
         public IOneWayPriceViewModel Ask { get; private set; }
         public string Notional { get; set; }

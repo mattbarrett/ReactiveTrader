@@ -14,7 +14,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.ServiceClients
 {
     class ReferenceDataServiceClient : ServiceClientBase, IReferenceDataServiceClient
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ReferenceDataServiceClient));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public ReferenceDataServiceClient(IConnectionProvider connectionProvider) : base(connectionProvider)
         {

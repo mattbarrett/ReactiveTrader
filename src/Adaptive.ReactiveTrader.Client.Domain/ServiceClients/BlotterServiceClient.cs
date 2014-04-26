@@ -13,7 +13,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.ServiceClients
 {
     internal class BlotterServiceClient : ServiceClientBase, IBlotterServiceClient
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(BlotterServiceClient));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public BlotterServiceClient(IConnectionProvider connectionProvider) : base(connectionProvider)
         {

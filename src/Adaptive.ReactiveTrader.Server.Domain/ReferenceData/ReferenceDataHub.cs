@@ -16,7 +16,7 @@ namespace Adaptive.ReactiveTrader.Server.ReferenceData
     {
         private readonly ICurrencyPairRepository _currencyPairRepository;
         private readonly IContextHolder _contextHolder;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ReferenceDataHub));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public const string CurrencyPairUpdateGroupName = "CurrencyPairUpdateGroup";
 

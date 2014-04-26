@@ -18,7 +18,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.SpotTiles
     [ImplementPropertyChanged]
     public class SpotTilesViewModel : ViewModelBase, ISpotTilesViewModel, IDisposable
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof (SpotTilesViewModel));
+        private static readonly ILog Log = LogManager.GetLogger();
         
         public ObservableCollection<ISpotTileViewModel> SpotTiles { get; private set; }
         private readonly CompositeDisposable _subscriptions = new CompositeDisposable();

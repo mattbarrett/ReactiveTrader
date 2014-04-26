@@ -8,7 +8,7 @@ namespace Adaptive.ReactiveTrader.Server.Blotter
     public class BlotterPublisher : IBlotterPublisher
     {
         private readonly IContextHolder _contextHolder;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(BlotterPublisher));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public BlotterPublisher(IContextHolder contextHolder)
         {

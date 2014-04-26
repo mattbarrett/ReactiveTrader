@@ -16,7 +16,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
     /// </summary>
     internal class Connection : IConnection
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(Connection));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         private readonly ISubject<ConnectionInfo> _statusStream;
         private readonly HubConnection _hubConnection;
@@ -41,7 +41,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
             ReferenceDataHubProxy = _hubConnection.CreateHubProxy(ServiceConstants.Server.ReferenceDataHub);
         }
 
-        public IObservable<Unit> Initialize()
+		public IObservable<object> Initialize()
         {
             if (_initialized)
             {
@@ -49,7 +49,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
             }
             _initialized = true;
 
-            return Observable.Create<Unit>(async observer =>
+			return Observable.Create<object>(async observer =>
             {
                 _statusStream.OnNext(new ConnectionInfo(ConnectionStatus.Connecting, Address)); 
 

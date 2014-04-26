@@ -18,7 +18,7 @@ namespace Adaptive.ReactiveTrader.Server.Pricing
         private readonly IContextHolder _contextHolder;
         public const string PriceStreamGroupPattern = "Pricing/{0}";
 
-        private static readonly ILog Log = LogManager.GetLogger(typeof(PricingHub));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public PricingHub(
             IPriceLastValueCache priceLastValueCache,

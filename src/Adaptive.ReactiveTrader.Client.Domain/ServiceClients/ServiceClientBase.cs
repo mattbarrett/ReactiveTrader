@@ -10,7 +10,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.ServiceClients
     internal class ServiceClientBase
     {
         private readonly IConnectionProvider _connectionProvider;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ServiceClientBase));
+        private static readonly ILog Log = LogManager.GetLogger();
         
         protected ServiceClientBase(IConnectionProvider connectionProvider)
         {

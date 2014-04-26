@@ -14,7 +14,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.Connectivity
         private static readonly TimeSpan StatsFrequency = TimeSpan.FromSeconds(1);
 
         private readonly IPriceLatencyRecorder _priceLatencyRecorder;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ConnectivityStatusViewModel));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public ConnectivityStatusViewModel(IReactiveTrader reactiveTrader, IConcurrencyService concurrencyService)
         {

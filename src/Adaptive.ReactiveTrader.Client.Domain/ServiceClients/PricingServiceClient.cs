@@ -12,7 +12,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.ServiceClients
 {
     internal class PricingServiceClient : ServiceClientBase, IPricingServiceClient
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(PricingServiceClient));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public PricingServiceClient(IConnectionProvider connectionProvider) : base(connectionProvider)
         {

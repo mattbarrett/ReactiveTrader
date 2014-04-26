@@ -17,7 +17,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.SpotTiles
     {
         private readonly ISpotTilePricingViewModel _parent;
         private readonly IConcurrencyService _concurrencyService;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(OneWayPriceViewModel));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         private readonly DelegateCommand _executeCommand;
         private IExecutablePrice _executablePrice;

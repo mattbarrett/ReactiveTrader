@@ -15,7 +15,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain
     public class ReactiveTrader : IReactiveTrader, IDisposable
     {
         private ConnectionProvider _connectionProvider;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ReactiveTrader));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public void Initialize(string username, string[] servers)
         {

@@ -5,7 +5,7 @@ namespace Adaptive.ReactiveTrader.Server.Transport
 {
     public class LoggingPipelineModule : HubPipelineModule
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(LoggingPipelineModule));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         protected override bool OnBeforeIncoming(IHubIncomingInvokerContext context)
         {

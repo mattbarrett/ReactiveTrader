@@ -21,7 +21,7 @@ namespace Adaptive.ReactiveTrader.Client.UI.Blotter
         private readonly IConcurrencyService _concurrencyService;
         public ObservableCollection<ITradeViewModel> Trades { get; private set; }
 
-        private static readonly ILog Log = LogManager.GetLogger(typeof(BlotterViewModel));
+		private static readonly ILog Log = LogManager.GetLogger();
         private bool _stale;
         private bool _stowReceived;
 

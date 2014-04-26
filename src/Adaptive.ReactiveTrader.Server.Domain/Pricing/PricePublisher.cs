@@ -9,7 +9,7 @@ namespace Adaptive.ReactiveTrader.Server.Pricing
     public class PricePublisher : IPricePublisher
     {
         private readonly IContextHolder _contextHolder;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(PricePublisher));
+        private static readonly ILog Log = LogManager.GetLogger();
         private long _totalUpdatesPublished;
         
         public PricePublisher(IContextHolder contextHolder)

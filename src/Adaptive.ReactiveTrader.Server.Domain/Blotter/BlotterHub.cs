@@ -12,7 +12,7 @@ namespace Adaptive.ReactiveTrader.Server.Blotter
     {
         private readonly ITradeRepository _tradeRepository;
         private readonly IContextHolder _contextHolder;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(BlotterHub));
+        private static readonly ILog Log = LogManager.GetLogger();
         public const string BlotterGroupName = "AllTrades";
 
         public BlotterHub(ITradeRepository tradeRepository, IContextHolder contextHolder)

@@ -10,7 +10,7 @@ namespace Adaptive.ReactiveTrader.Server.ReferenceData
 {
     public class CurrencyPairUpdatePublisher : ICurrencyPairUpdatePublisher
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof (CurrencyPairUpdatePublisher));
+        private static readonly ILog Log = LogManager.GetLogger();
         private readonly IContextHolder _contextHolder;
 
         public CurrencyPairUpdatePublisher(IContextHolder contextHolder)

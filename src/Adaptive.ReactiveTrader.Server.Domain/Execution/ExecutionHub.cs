@@ -11,7 +11,7 @@ namespace Adaptive.ReactiveTrader.Server.Execution
     public class ExecutionHub : Hub
     {
         private readonly IExecutionService _executionService;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ExecutionHub));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         public ExecutionHub(IExecutionService executionService)
         {

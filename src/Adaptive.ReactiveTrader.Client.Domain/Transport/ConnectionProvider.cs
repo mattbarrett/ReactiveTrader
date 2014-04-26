@@ -17,7 +17,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
         private readonly IObservable<IConnection> _connectionSequence;
         private readonly string[] _servers;
 
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ConnectionProvider));
+        private static readonly ILog Log = LogManager.GetLogger();
 
         private int _currentIndex;
 
