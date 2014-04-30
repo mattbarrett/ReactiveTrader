@@ -28,5 +28,13 @@
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Reactive Trader Tab</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon-60@2x</string>
+		<string>Icon@2x</string>
+		<string>Icon</string>
+	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>

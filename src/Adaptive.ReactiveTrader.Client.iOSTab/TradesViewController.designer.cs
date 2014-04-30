@@ -7,8 +7,8 @@ using MonoTouch.Foundation;
 
 namespace Adaptive.ReactiveTrader.Client.iOSTab
 {
-	[Register ("SecondViewController")]
-	partial class SecondViewController
+	[Register ("FirstViewController")]
+	partial class TradesViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

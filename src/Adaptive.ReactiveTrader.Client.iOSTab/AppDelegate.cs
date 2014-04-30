@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Adaptive.ReactiveTrader.Client.Domain;
+using System.Diagnostics;
 
 namespace Adaptive.ReactiveTrader.Client.iOSTab
 {
@@ -31,25 +32,31 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
 			_reactiveTrader = new Adaptive.ReactiveTrader.Client.Domain.ReactiveTrader ();
-			_reactiveTrader.Initialize ("trader", new [] { "http://reactivetrader.azurewebsites.net/signalr" });
+			_reactiveTrader.Initialize ("iOS-" + Process.GetCurrentProcess ().Id, new [] { "http://reactivetrader.azurewebsites.net/signalr" });
 			_reactiveTrader.ConnectionStatusStream
-				.Subscribe (ci => {
-					BeginInvokeOnMainThread(() => {
-					var view = new UIAlertView() {
-						Title = "Connection Status",
-						Message = string.Format("Reactive Trader connection status is now {0}.", ci.ConnectionStatus.ToString())
-					};
-					view.AddButton("OK");
-					view.Show();
-					});
-				});
+				.Subscribe (ci => BeginInvokeOnMainThread (() => {
+				var view = new UIAlertView () {
+					Title = "Connection Status",
+					Message = string.Format ("Reactive Trader is now {0}.", ci.ConnectionStatus.ToString ().ToLowerInvariant ())
+				};
+				view.AddButton ("OK");
+				view.Show ();
+			}));
 
-			var viewController1 = new FirstViewController (_reactiveTrader);
-			var viewController2 = new SecondViewController (_reactiveTrader);
+			var cs = new ConcurrencyService ();
+
+			var viewController1 = new TradesViewController (_reactiveTrader);
+			var viewController2 = new PricesViewController (_reactiveTrader, cs);
+			#if DEBUG
+			var logViewController = new LogViewController(_reactiveTrader, cs);
+			#endif
 			tabBarController = new UITabBarController ();
 			tabBarController.ViewControllers = new UIViewController [] {
 				viewController1,
 				viewController2,
+				#if DEBUG
+				logViewController
+				#endif
 			};
 
 

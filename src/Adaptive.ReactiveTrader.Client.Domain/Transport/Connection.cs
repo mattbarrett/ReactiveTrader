@@ -27,7 +27,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
         {
             _statusStream = new BehaviorSubject<ConnectionInfo>(new ConnectionInfo(ConnectionStatus.Uninitialized, address));
             Address = address;
-            _hubConnection = new HubConnection(address);
+			_hubConnection = new HubConnection(address);
             _hubConnection.Headers.Add(ServiceConstants.Server.UsernameHeader, username);
             CreateStatus().Subscribe(
                 s => _statusStream.OnNext(new ConnectionInfo(s, address)),

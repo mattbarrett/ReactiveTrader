@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Matt's iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Adaptive.ReactiveTrader.Client.iOSTab/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Adaptive.ReactiveTrader.Client.iOSTab/PricesViewController.cs">
     <Files>
-      <File FileName="Adaptive.ReactiveTrader.Client/UI/Connectivity/ConnectivityStatusViewModel.cs" Line="17" Column="55" />
-      <File FileName="Adaptive.ReactiveTrader.Client/Logging/LogManager.cs" Line="7" Column="39" />
-      <File FileName="Adaptive.ReactiveTrader.Client/UI/Blotter/BlotterViewModel.cs" Line="21" Column="32" />
-      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/SecondViewController.cs" Line="43" Column="1" />
+      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/PricesViewController.cs" Line="142" Column="6" />
+      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/TradesViewController.cs" Line="43" Column="43" />
+      <File FileName="Adaptive.ReactiveTrader.Client.Domain/Repositories/ITradeRepository.cs" Line="1" Column="1" />
+      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/AppDelegate.cs" Line="43" Column="1" />
+      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/ConcurrencyService.cs" Line="13" Column="4" />
+      <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/iOSDispatcherScheduler.cs" Line="41" Column="15" />
       <File FileName="Adaptive.ReactiveTrader.Client.iOSTab/Main.cs" Line="16" Column="1" />
     </Files>
     <Pads>
@@ -13,13 +15,12 @@
         <State expanded="True">
           <Node name="Client" expanded="True">
             <Node name="iOS" expanded="True">
-              <Node name="Adaptive.ReactiveTrader.Client.iOS" expanded="True" />
               <Node name="Adaptive.ReactiveTrader.Client.iOSTab" expanded="True" selected="True">
-                <Node name="References" expanded="True" />
+                <Node name="PricesViewController.cs" expanded="True" />
+                <Node name="TradesViewController.cs" expanded="True" />
               </Node>
             </Node>
           </Node>
-          <Node name="Server" expanded="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -28,11 +29,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/matt/src/ReactiveTrader/src/Adaptive.ReactiveTrader.Client.iOSTab/SecondViewController.cs" line="32" column="1" />
-      <Breakpoint file="/Users/matt/src/ReactiveTrader/src/Adaptive.ReactiveTrader.Client.iOSTab/SecondViewController.cs" line="43" column="28" />
-      <Breakpoint file="/Users/matt/src/ReactiveTrader/src/Adaptive.ReactiveTrader.Client.iOSTab/SecondViewController.cs" line="41" column="9" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Client.iOS.Adaptive.ReactiveTrader.Client.iOSTab>

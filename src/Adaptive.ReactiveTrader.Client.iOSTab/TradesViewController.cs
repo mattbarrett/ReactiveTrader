@@ -9,13 +9,13 @@ using Adaptive.ReactiveTrader.Client.Domain.Models.Execution;
 
 namespace Adaptive.ReactiveTrader.Client.iOSTab
 {
-	public partial class FirstViewController : UIViewController
+	public partial class TradesViewController : UIViewController
 	{
 		private IReactiveTrader _reactiveTrader;
 
-		public FirstViewController (IReactiveTrader reactiveTrader) : base ("FirstViewController", null)
+		public TradesViewController (IReactiveTrader reactiveTrader) : base ("FirstViewController", null)
 		{
-			Title = NSBundle.MainBundle.LocalizedString ("Prices", "Prices");
+			Title = NSBundle.MainBundle.LocalizedString ("Trades", "Trades");
 			TabBarItem.Image = UIImage.FromBundle ("first");
 
 			_reactiveTrader = reactiveTrader;
@@ -39,14 +39,19 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 			var trades = new Section ("Trades");
 			root.Add (trades);
 
-			_reactiveTrader.TradeRepository.GetTradesStream()
-				.Subscribe(delegate (IEnumerable<ITrade> tradesUpdate) {
-					foreach (var trade in tradesUpdate) {
-						trades.Add(new MultilineElement(trade.TradeStatus.ToString(), trade.ToString()));
-					}
-				});
+			_reactiveTrader.TradeRepository.GetTradesStream ()
+				.Subscribe ((IEnumerable<ITrade> tradesUpdate) => BeginInvokeOnMainThread (() => {
+				foreach (var trade in tradesUpdate) {
+						trades.Insert (0, 
+							UITableViewRowAnimation.Top
+							new MultilineElement (trade.TradeStatus.ToString (), trade.ToString ()));
+				}
+			}));
 
-			this.AddChildViewController (new DialogViewController (root));
+			var dvc = new DialogViewController (root);
+			this.AddChildViewController (dvc);
+			this.Add (dvc.TableView);
+
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}

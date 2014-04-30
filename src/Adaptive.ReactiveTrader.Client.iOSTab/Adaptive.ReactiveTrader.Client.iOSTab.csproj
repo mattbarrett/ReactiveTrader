@@ -116,21 +116,34 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="FirstViewController.cs" />
-    <Compile Include="SecondViewController.cs" />
-    <Compile Include="FirstViewController.designer.cs">
-      <DependentUpon>FirstViewController.cs</DependentUpon>
+    <Compile Include="PricesViewController.cs" />
+    <Compile Include="PricesViewController.designer.cs">
+      <DependentUpon>PricesViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SecondViewController.designer.cs">
-      <DependentUpon>SecondViewController.cs</DependentUpon>
+    <Compile Include="TradesViewController.cs" />
+    <Compile Include="TradesViewController.designer.cs">
+      <DependentUpon>TradesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConcurrencyService.cs" />
+    <Compile Include="iOSDispatcherScheduler.cs" />
+    <Compile Include="LogViewController.cs" />
+    <Compile Include="LogViewController.designer.cs">
+      <DependentUpon>LogViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\first.png" />
     <BundleResource Include="Resources\first%402x.png" />
     <BundleResource Include="Resources\second.png" />
     <BundleResource Include="Resources\second%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\adaptive.png" />
+    <BundleResource Include="Resources\adaptive%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -146,5 +159,9 @@
       <Project>{B954B5A9-ABD0-469B-9397-039675BEC8F0}</Project>
       <Name>Adaptive.ReactiveTrader.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
   </ItemGroup>
 </Project>
