@@ -113,3 +113,7 @@ Backup*/
 UpgradeLog*.XML
 Thumbs.db
 artifacts/
+
+# Xamarin preferences file per user, not per project?
+*.userprefs
+
