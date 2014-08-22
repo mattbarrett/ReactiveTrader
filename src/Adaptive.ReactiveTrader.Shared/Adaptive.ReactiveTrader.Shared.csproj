@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AuthTokenProvider.cs" />
+    <Compile Include="DTO\Control\CurrencyPairStateDto.cs" />
+    <Compile Include="DTO\Control\FeedThroughputDto.cs" />
     <Compile Include="DTO\Execution\DirectionDto.cs" />
     <Compile Include="DTO\Execution\TradeDto.cs" />
     <Compile Include="DTO\Execution\TradeRequestDto.cs" />
@@ -44,6 +47,7 @@
     <Compile Include="DTO\Pricing\PriceSubscriptionRequestDto.cs" />
     <Compile Include="DTO\ReferenceData\CurrencyPairDto.cs" />
     <Compile Include="DTO\ReferenceData\CurrencyPairUpdateDto.cs" />
+    <Compile Include="DTO\UnitDto.cs" />
     <Compile Include="DTO\UpdateTypeDto.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\Heartbeat.cs" />
@@ -51,6 +55,7 @@
     <Compile Include="Extensions\IStale.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
     <Compile Include="Extensions\Stale.cs" />
+    <Compile Include="IAuthTokenProvider.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
     <Compile Include="Logging\DebugLoggerFactory.cs" />
     <Compile Include="Logging\ILog.cs" />

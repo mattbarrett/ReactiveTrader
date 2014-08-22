@@ -70,6 +70,7 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Reactive.Core">
       <HintPath>..\packages\Rx-Core.2.2.2\lib\net45\System.Reactive.Core.dll</HintPath>
@@ -95,6 +96,8 @@
     </Compile>
     <Compile Include="Blotter\BlotterHub.cs" />
     <Compile Include="ContextUtil.cs" />
+    <Compile Include="Control\ControlAuth.cs" />
+    <Compile Include="Control\ControlHub.cs" />
     <Compile Include="Execution\ExecutionHub.cs" />
     <Compile Include="ReferenceData\CurrencyPairInfo.cs" />
     <Compile Include="ReferenceData\CurrencyPairRepository.cs" />

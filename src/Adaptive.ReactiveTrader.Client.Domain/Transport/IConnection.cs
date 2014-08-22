@@ -9,9 +9,11 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
         IObservable<ConnectionInfo> StatusStream { get; }
         IObservable<Unit> Initialize();
         string Address { get; }
+        void SetAuthToken(string authToken);
         IHubProxy ReferenceDataHubProxy { get; }
         IHubProxy PricingHubProxy { get; }
         IHubProxy ExecutionHubProxy { get; }
         IHubProxy BlotterHubProxy { get; }
+        IHubProxy ControlHubProxy { get; }
     }
  }

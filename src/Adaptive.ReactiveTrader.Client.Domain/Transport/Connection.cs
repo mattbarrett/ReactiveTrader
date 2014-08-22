@@ -39,6 +39,7 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
             ExecutionHubProxy = _hubConnection.CreateHubProxy(ServiceConstants.Server.ExecutionHub);
             PricingHubProxy = _hubConnection.CreateHubProxy(ServiceConstants.Server.PricingHub);
             ReferenceDataHubProxy = _hubConnection.CreateHubProxy(ServiceConstants.Server.ReferenceDataHub);
+            ControlHubProxy = _hubConnection.CreateHubProxy(ServiceConstants.Server.ControlHub);
         }
 
         public IObservable<Unit> Initialize()
@@ -106,6 +107,12 @@ namespace Adaptive.ReactiveTrader.Client.Domain.Transport
         public IHubProxy PricingHubProxy { get; private set; }
         public IHubProxy ExecutionHubProxy { get; private set; }
         public IHubProxy BlotterHubProxy { get; private set; }
+        public IHubProxy ControlHubProxy { get; private set; }
+
+        public void SetAuthToken(string authToken)
+        {
+            _hubConnection.Headers[AuthTokenProvider.AuthTokenKey] = authToken;
+        }
 
         public override string ToString()
         {

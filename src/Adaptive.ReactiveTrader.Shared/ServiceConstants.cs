@@ -23,6 +23,12 @@
             // executution
             public const string ExecutionHub = "ExecutionHub";
             public const string Execute = "Execute";
+
+            // control
+            public const string ControlHub = "ControlHub";
+            public const string SetPriceFeedThroughput = "SetPriceFeedThroughput";
+            public const string GetCurrencyPairStates = "GetCurrencyPairStates";
+            public const string SetCurrencyPairState = "SetCurrencyPairState";
         }
 
         public static class Client
