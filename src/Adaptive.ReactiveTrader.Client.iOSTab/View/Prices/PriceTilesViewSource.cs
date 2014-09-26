@@ -15,11 +15,11 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 {
 	public class PriceTilesViewSource : UITableViewSource
 	{
-		private readonly PriceTilesModel priceTilesModel;
+		private readonly PriceTilesModel _priceTilesModel;
 
 		public PriceTilesViewSource (PriceTilesModel priceTilesModel)
 		{
-			this.priceTilesModel = priceTilesModel;
+			this._priceTilesModel = priceTilesModel;
 		}
 
 
@@ -31,7 +31,7 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return priceTilesModel.ActiveCurrencyPairs.Count;
+			return _priceTilesModel.ActiveCurrencyPairs.Count;
 		}
 
 
@@ -54,7 +54,7 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-			PriceTileModel model = priceTilesModel [indexPath.Row];
+			PriceTileModel model = _priceTilesModel [indexPath.Row];
 
 			var cell = GetCell (tableView, model);
 

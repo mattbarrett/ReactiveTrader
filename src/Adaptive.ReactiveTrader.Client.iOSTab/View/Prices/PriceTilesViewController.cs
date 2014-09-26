@@ -8,6 +8,10 @@ using Adaptive.ReactiveTrader.Client.Domain;
 using Adaptive.ReactiveTrader.Client.Concurrency;
 using System.Linq;
 using Adaptive.ReactiveTrader.Client.iOSTab.Tiles;
+using System.Collections.Specialized;
+using System.Collections.Generic;
+using System.Collections;
+using MonoTouch.ExternalAccessory;
 
 namespace Adaptive.ReactiveTrader.Client.iOSTab
 {
@@ -17,6 +21,7 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 		private readonly IReactiveTrader _reactiveTrader;
 		private readonly IConcurrencyService _concurrencyService;
 		private readonly PriceTilesModel _model;
+		private readonly Dictionary<PriceTileModel, IDisposable> _subscriptions = new Dictionary<PriceTileModel, IDisposable>();
 
 		public PriceTilesViewController (IReactiveTrader reactiveTrader, IConcurrencyService concurrencyService) 
 			: base(UITableViewStyle.Plain)
@@ -30,14 +35,40 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 			_model = new PriceTilesModel (_reactiveTrader, _concurrencyService);
 
 			_model.ActiveCurrencyPairs.CollectionChanged += (sender, e) => {
-				foreach (var model in e.NewItems.Cast<PriceTileModel>()) {
-					model.OnChanged
-						.Subscribe (OnItemChanged);
+
+				switch (e.Action) {
+				case NotifyCollectionChangedAction.Add: 
+					foreach (var model in e.NewItems.Cast<PriceTileModel>()) {
+						_subscriptions.Add (model, model.OnChanged.Subscribe (OnItemChanged));
+					}
+					break;
+				case NotifyCollectionChangedAction.Remove:
+					foreach (var model in e.OldItems.Cast<PriceTileModel> ()) {
+						IDisposable subscription;
+						if (_subscriptions.TryGetValue (model, out subscription)) {
+							subscription.Dispose();
+							_subscriptions.Remove (model);
+						}
+					}
+					break;
 				}
+
 				if (IsViewLoaded) {
-					TableView.ReloadData ();
+					if (e.NewItems.Count == 1){
+						TableView.InsertRows (
+							new [] {
+								NSIndexPath.Create (0, e.NewStartingIndex)
+							}, UITableViewRowAnimation.Top);
+//					} else if (e.OldItems.Count == 1) {
+//						TableView.DeleteRows (new [] {
+//							NSIndexPath.Create (0, e.OldStartingIndex)
+//						}, UITableViewRowAnimation.Fade);
+					} else {
+						TableView.ReloadData();
+					}
 				}
 			};
+
 			_model.Initialise ();
 
 		}
@@ -61,20 +92,21 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 					switch (itemModel.Status) {
 					case PriceTileStatus.Done:
 					case PriceTileStatus.DoneStale:
-						if (cell.GetType ().Equals (Type.GetType ("Adaptive.ReactiveTrader.Client.iOSTab.PriceTileTradeAffirmationViewCell", false))) {
+						if (cell.GetType () == typeof(PriceTileTradeAffirmationViewCell))
+						{
 							bAppropriateCell = true;
 						}
 						break;
 
 					case PriceTileStatus.Streaming:
 					case PriceTileStatus.Executing:
-						if (cell.GetType ().Equals (Type.GetType ("Adaptive.ReactiveTrader.Client.iOSTab.PriceTileViewCell", false))) {
+						if (cell.GetType () == typeof(PriceTileViewCell)) {
 							bAppropriateCell = true;
 						}
 						break;
 
 					case PriceTileStatus.Stale:
-						if (cell.GetType ().Equals (Type.GetType ("Adaptive.ReactiveTrader.Client.iOSTab.PriceTileErrorViewCell", false))) {
+						if (cell.GetType () == typeof(PriceTileErrorViewCell)) {
 							bAppropriateCell = true;
 						}
 						break;
@@ -91,7 +123,7 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 						TableView.ReloadRows (
 							new [] {
 								NSIndexPath.Create (0, indexOfItem)
-							}, UITableViewRowAnimation.None);
+							}, UITableViewRowAnimation.Fade);
 					}
 				}
 

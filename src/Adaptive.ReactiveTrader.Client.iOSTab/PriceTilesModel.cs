@@ -46,8 +46,13 @@ namespace Adaptive.ReactiveTrader.Client.iOSTab
 
 					_activeCurrencyPairs.Add (tileModel);
 
-				} else {
-					// todo handle removal of price tile
+				} else if (update.UpdateType == Adaptive.ReactiveTrader.Client.Domain.Models.UpdateType.Remove) {
+
+					var tileModel = _activeCurrencyPairs
+								.FirstOrDefault (ptm => ptm.Base == update.CurrencyPair.BaseCurrency
+														&& ptm.Counter == update.CurrencyPair.CounterCurrency);
+					if (tileModel != null)
+						_activeCurrencyPairs.Remove (tileModel);
 				}
 			}
 		}		
